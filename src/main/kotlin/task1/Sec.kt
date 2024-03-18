@@ -11,7 +11,7 @@ object Sec{
         }
     }
 
-    private fun cosTaylor(x: Double, terms: Int = 8): Double{
+    private fun cosTaylor(x: Double, terms: Int = 11): Double{
         var result = 0.0
 
         for (n in 0 until terms){
@@ -21,7 +21,7 @@ object Sec{
         return result
     }
 
-    fun secCalc(x: Double, terms: Int): Double{
+    fun secCalc(x: Double, terms: Int = 11): Double{
         if (terms == 0)
             throw WrongArgumentException()
 
@@ -36,7 +36,3 @@ object Sec{
 
 class WrongArgumentException : Exception("Wrong argument!")
 class FunctionNotDefinedException : Exception()
-
-fun main(){
-    println("sec = ${Sec.secCalc( -Math.PI / 2, 10)}")
-}
